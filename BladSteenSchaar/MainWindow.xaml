@@ -1,0 +1,80 @@
+﻿<Window x:Class="BladSteenSchaar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BladSteenSchaar"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Rock Paper Scissors" FontWeight="Bold" FontSize="25" Margin="250,0,0,0"></Label>
+            <Label Content="Try Your Luck" FontWeight="DemiBold" FontSize="20" Margin="300,0,0,0"></Label>
+        </StackPanel>
+        <Border x:Name="CanvasBorder" BorderBrush="Black">
+            <Canvas Background="DarkSlateGray" Width="300" Height="150" Margin="0,0,400,100">
+                <WrapPanel Orientation="Horizontal" Height="20" Width="300" Background="Black">
+                <TextBlock Margin="100,0,0,0"  Height="20"  Text="You: " FontWeight="Bold" Foreground="AliceBlue"></TextBlock>
+                <TextBlock x:Name="YouScore" FontWeight="Bold" Margin="5,0,0,0"  Foreground="AliceBlue" Text="0"></TextBlock>
+                </WrapPanel>
+                <Image x:Name="YouChose" Margin="150,70,0,0" Source="{Binding choiceYou}"></Image>
+                <Rectangle  Height="130" Width="300" Margin="0,20,0,100">
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="YouChoice" ></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Canvas>
+        </Border>
+
+        <Border  BorderBrush="Black">
+            <Canvas Background="DarkSlateGray" Width="300" Height="150" Margin="400,0,0,100">
+                <WrapPanel Orientation="Horizontal" Height="20" Width="300" Background="Black">
+                    <TextBlock Margin="100,0,0,0"  Height="20"  Text="Computer: " FontWeight="Bold" Foreground="AliceBlue"></TextBlock>
+                    <TextBlock x:Name="ComputerScore" FontWeight="Bold" Margin="5,0,0,0"  Foreground="AliceBlue" Text="0"></TextBlock>
+                </WrapPanel>
+
+                <Rectangle  Height="130" Width="300" Margin="0,20,0,100">
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="ComputerChoice" ></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Canvas>
+        </Border>
+        
+        <StackPanel Orientation="Vertical">
+            <Label Content="Choose one" Foreground="DarkRed" FontSize="20" FontWeight="Bold" Margin="330,250,0,0"></Label>    
+        </StackPanel>
+        
+        <Border Background="DarkSlateGray" Margin="0,250,300,0" Width="75" Height="75" BorderThickness="2" CornerRadius="200" >
+            <Button x:Name="ButtonScissor" Click="Button_Click" Height="50" Width="50">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image x:Name="ChoiceScissor" Source="https://upload.wikimedia.org/wikipedia/commons/5/5f/Rock-paper-scissors_%28scissors%29.png" />
+                    </ControlTemplate>
+                </Button.Template>
+            </Button> 
+        </Border>
+        <Border Background="DarkSlateGray" Margin="0,250,50,0" Width="75" Height="75" BorderThickness="2" CornerRadius="200" >
+            <Button x:Name="ButtonRock" Click="Button_Click" Height="50" Width="50">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image x:Name="ChoiceRock" Source="https://upload.wikimedia.org/wikipedia/commons/7/7e/Rock-paper-scissors_%28rock%29.png" />
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Border>
+        <Border  Background="DarkSlateGray" Margin="200,250,0,0" Width="75" Height="75" BorderThickness="2" CornerRadius="200" >
+            <Button x:Name="ButtonPaper" Click="Button_Click" Height="50" Width="50">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image x:Name="ChoicePaper" Source="https://upload.wikimedia.org/wikipedia/commons/a/af/Rock-paper-scissors_%28paper%29.png" />
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Border>
+
+        
+
+
+    </Grid>
+</Window>
